@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- 本文件练习以下内容：
+    创建元素：createElement()
+    创建文本节点: createTextNode()
+    克隆节点: cloneNode()
+    附加节点：appendChild()  包括附加元素节点，文本节点
+    插入节点：insertBefore()
+    替换节点：replaceChild()
+    删除节点：removeChild()
+    设置属性： setAttribute()
+    获取属性： getAttribute()
+     -->
+</head>
+<body>
+<h1>Thing to Do</h1>
+<ol id="toDoList">
+    <li>Mow the lawn</li>
+    <li>Clean the windows</li>
+    <li>Answer your email</li>
+</ol>
+<p id="toDoNotes">Make sure all these are completed by 8pm so you can watch the game on TV!</p>
+<div id="div1">
+    <button type="button" onclick="appendNode()">Append Node</button>
+    <input id="btn" value="replace Elemnet" type="button"/>
+    <input type="button" value="Remove Node" onclick="removeNode()"/>   <!-- onclick 可以直接调用全局函数 -->
+    <button type="button"  onclick="insertNode()">Insert Node</button>
+    <input type="button" value="Get Node" onclick="getNode()"/>
+    <input type="button" value="Set Node" onclick="setNode()"/>
+    <input type="button" value="SetGet Div3" onclick="setGetDive3()"/>
+
+</div>
+<div id="div2">
+    <p id="para1">para1: Welcome to my web page</p>
+    <p id="para2">para2: Please take a look around.</p>
+</div>
+<div id="div3">
+    <p id="div3-para1">test attribute1</p>
+    <p id="div3-para2">test attribute2</p>
+</div>
+<script>
+
+    var myDiv = document.getElementById("div1");   //获取id=div1的 div元素，myDiv1 是全局变量
+    function appendNode() {
+        /* 创建节点，创建文本，附加节点和文本 */
+        var newPara = document.createElement("p");   //  创建元素p：createElement()
+        var newText = document.createTextNode("this is new Text Node append to newPara Element");  //创建文本节点
+        newPara.appendChild(newText);    //附加文本节点到P元素: newPara
+        myDiv.appendChild(newPara);   //附加包含文本节点的P元素到id=div1的div元素
+    }
+
+    /*  插入节点 */
+    function insertNode(){
+        /* 克隆节点  */
+        var myPara = document.getElementById("toDoNotes").cloneNode(true);   //克隆p元素
+        var myOlist = document.getElementById("toDoList").cloneNode(true);  //克隆ol元素，true表示包含子节点
+        myDiv.appendChild(myOlist);  //将克隆的ol元素myOlist附加到myDiv元素
+        myDiv.insertBefore(myPara,myOlist);  //myDiv 是父元素，将新克隆的p元素插入到myOlist元素之前
+    }
+
+    var myDiv2 = document.getElementById("div2");  //获取父元素div2, myDiv2是全局变量
+
+    /* 替换节点： 用H2标题元素替换P元素 */
+    function replaceHeading() {
+        var newH2 = document.createElement("H2");
+        var h2Text = document.createTextNode("this is to replace H2'S text __H1__");
+        var oldPara = document.getElementById("para1");
+        newH2.appendChild(h2Text);
+        myDiv2.replaceChild(newH2,oldPara);   //myDiv2是父元素, newH2是新元素，oldPara是老p元素
+    }
+    window.onload = function() {
+        document.getElementById("btn").onclick = replaceHeading;
+    };
+
+    /* 删除节点  */
+    function removeNode () {
+        var myPara2 = document.getElementById("para2");
+        myDiv2.removeChild(myPara2);
+    }
+
+    var divNode = document.getElementById("div3-para1");     //获取属性，divNode是全局变量
+
+    /*  设置节点属性  */
+    function setNode() {
+        divNode.setAttribute("id","div3-new-property");
+        alert("设置节点属性成功");
+    }
+
+    /* 获取节点属性*/
+    function getNode() {
+        alert(divNode.getAttribute("id"));
+    }
+
+    /* 设置并获取div3的属性 */
+    function setGetDive3 () {
+      var myDiv3 = document.getElementById("div3");
+        myDiv3.setAttribute("class","container");
+        alert("mydiv3.class= " + myDiv3.getAttribute("class"));
+    }
+
+
+</script>
+</body>
+</html>
