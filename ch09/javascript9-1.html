@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- 本文练习以下内容
+    <!--  第 9 章  遍历DOM
+     本文练习以下内容
      childNodes： 子节点集合，它包含了当前节点全部直接子节点，可以像访问数组一样访问集合里的项目
      nodeType: 节点类型，1 表示元素， 2表示属性， 3表示文本(包含空白区域)
      nodeValue: 返回文本节点里的内容
@@ -83,7 +84,7 @@
 
     function getOlFirst() {
         var olElement = document.getElementById("toDoList");
-        alert(document.getElementById("toDoList").childNodes[1].nodeValue);
+        alert(document.getElementById("toDoList").childNodes[0].nodeValue);
     }
     window.onload = getOlFirst;
 </script>
