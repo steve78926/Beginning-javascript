@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 本文练习以下内容
+     childNodes： 子节点集合，它包含了当前节点全部直接子节点，可以像访问数组一样访问集合里的项目
+     nodeType: 节点类型，1 表示元素， 2表示属性， 3表示文本(包含空白区域)
+     nodeValue: 返回文本节点里的内容
+     nodeName: 节点名称，即元素名称，如p, h2, h1 div
+     getElementById()： 通过元素id获取元素，注意单词是Element 单数
+     getElementsByTagName()  通过元素名称获取元素，返回取是个集合，即使该集合只有一个元素。注意单词是Elements 复数
+     以下内容尚待确认：‘
+     firstChild
+     lastChild
+     parentNode
+     nextSibling
+     previousSibling
+     -->
+    <title>Title</title>
+</head>
+<body>
+<h1>Thing to Do</h1>
+<h2>语言特点</h2>
+<h2>书写方式</h2>
+<h2>整体结构</h2>
+<h2>头部内容</h2>
+<h2>主体内容</h2>
+<h2>发展历史</h2>
+<h2>相关要求</h2>
+<ol id="toDoList">
+    <li>Mow the lawn</li>
+    <li>Clean the windows</li>
+    <li>Answer your email</li>
+    <li>What are you doing</li>
+    <li>The art of being wise is the art of knowing what to overlook.</li>
+</ol>
+
+<p id="toDoNotes">Make sure all these are completed by 8pm so you casn watch the game on TV! </p>
+<div id="div1">
+    this is test div element!
+</div>
+<input type="button" value="getNodeValue" onclick="getNodeValue()"/>
+<button type="button" onclick="getNodeName()">getNodeName</button>
+<input type="button" value="getListcount" onclick="countOListItemsbyName()"/>
+<button type="button" onclick="countH2byName()">getH2Count</button>
+<button type="button" onclick="getOlFirst()">getOlFirst</button>
+<script>
+    function countListItems() {
+        var olElement = document.getElementById("toDoList");        //获取id=toDoList的元素
+        var count = 0;
+        for (var i=0; i< olElement.childNodes.length; i++ ){
+            if (olElement.childNodes[i].nodeType == 1) count++;
+        }
+        alert("The ordered list contains  " + count + " items");
+    }
+
+    function getNodeValue() {
+        var text = "";
+        var pElement = document.getElementById("toDoNotes");        //获取id=toDoNotes的p元素
+        for ( var i=0; i< pElement.childNodes.length; i++ ){
+            if (pElement.childNodes[i].nodeType == 3) {             //nodeType == 3 表示该节点为文本节点
+                text += pElement.childNodes[i].nodeValue;
+            }
+        }
+        alert("The paragraph says: \n\n" + text);
+    }
+
+    function getNodeName() {                                        //获取节点名称
+        var divElement = document.getElementById("div1");
+        alert("id = 'div1' node Name is " +divElement.nodeName);
+    }
+
+    function countOListItemsbyName () {
+        var olElement = document.getElementById("toDoList");
+        var listItem = olElement.getElementsByTagName("li");
+        alert("The ordered list contains " + listItem.length + " items by getTagName")
+    }
+
+    function countH2byName() {
+        var h2Element = document.body.getElementsByTagName("h2");
+        alert("the h2 count: " + h2Element.length + " items by TagName");
+    }
+
+    function getOlFirst() {
+        var olElement = document.getElementById("toDoList");
+        alert(document.getElementById("toDoList").childNodes[1].nodeValue);
+    }
+    window.onload = getOlFirst;
+</script>
+</body>
+</html>
