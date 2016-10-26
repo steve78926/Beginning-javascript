@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--
+                第 10 章 JSON简介
+
+      包括以下内容：
+      JSON.parse(inString)   反序列化： 将json字符串解析为对象
+      JSON.stringify(object)  序列化： 将对象转化为json字符串
+      eval()：该函数会计算或运行作为参数传递的内容,如果参数是一个表达式，eval()会计算它的值，如果参数包含一个或多个
+              JavaScript语句,eval() 执行这些语句
+
+     -->
+    <title>Title</title>
+</head>
+<body>
+<input type="button" value="jsonParse" onclick="alert(jsonParse())"/>
+<button type="button" onclick="jsonString()">jsonString</button>
+<input type="button" value="eval" onclick="jsonEval()"/>
+
+<script>
+    function jsonParse() {
+        var inString = prompt("Enter JSON object:");
+        var out = '';
+        var myObject = JSON.parse(inString);        //将json字符串解析为对象
+        for (i in myObject) {
+            out += "Property: " + i + " = " + myObject[i] + "\n ";
+        }
+        return out;
+    }
+
+    function jsonString() {
+        var Dan = new Object();
+        Dan.height = 1.85;
+        Dan.age = 30;
+        Dan.eyeColor = "blue";
+        Dan.sex = "man";
+        alert(JSON.stringify(Dan));                 //将对象解析为json字符串
+    }
+
+    function jsonEval() {
+        //var user = '{"username":"philb1234","location":"spain", "height":1.80}';   // {} 外必须有‘’否则异常
+          var user = prompt("enter json object");
+        alert(user);
+        var myObject = eval('(' + user + ')');
+        var out = myObject.username + myObject.age + myObject.height;
+        alert(out);
+    }
+
+</script>
+
+</body>
+</html>
