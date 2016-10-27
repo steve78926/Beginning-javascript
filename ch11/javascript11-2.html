@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- 第 11 章  HTML5 与 JavaScript
+    使用<canvas>实现一个移动的圆球
+    结果不绘制圆盘
+    -->
+    <title>Title</title>
+</head>
+<body>
+<canvas id="canvas1" width="400" height="300">
+    <p> Your browser doesn't support the canvas element. </p>
+</canvas>
+<p> Your browser doesn't support the canvas element. </p>
+<script>
+    var context;
+    var x = 50;
+    var y = 50;
+    var counter = 0;
+    function paint() {
+         //alert("paint开始");
+        context.beginPath();
+        context.fillStyle = "red";
+        context.arc(x,y,0,15,0,Math.PI*2,false);
+        context.closePath();
+        context.fill();
+    }
+
+    function animate() {
+        //alert("animate开始");
+        context.clearRect(0,0,400,300);
+        counter++;
+        x += 20 * Math.sin(counter);
+        y += 20 * Math.cos(counter);
+        //alert("x= " + x, "y= " + y);
+        paint();
+    }
+
+    window.onload = function () {
+        //alert("动画开始");
+        context = canvas1.getContext('2d');
+        setInterval(animate,100);
+
+    }
+</script>
+</body>
+</html>
