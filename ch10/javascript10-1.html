@@ -10,6 +10,10 @@
       JSON.stringify(object)  序列化： 将对象转化为json字符串
       eval()：该函数会计算或运行作为参数传递的内容,如果参数是一个表达式，eval()会计算它的值，如果参数包含一个或多个
               JavaScript语句,eval() 执行这些语句
+      属性：通过Json的key访问属性
+      方法：通过Json的key访问对应的方法
+      数组：Json对象的值可以是数组
+      对象：Json对象的值可以是另一个对象
 
      -->
     <title>Title</title>
@@ -18,8 +22,46 @@
 <input type="button" value="jsonParse" onclick="alert(jsonParse())"/>
 <button type="button" onclick="jsonString()">jsonString</button>
 <input type="button" value="eval" onclick="jsonEval()"/>
+<input type="button" value="getProperty" onclick="alert(user.location)"/>
+<br/>
+<input type="button" value="setName" onclick="user1.setName(prompt('enter new Name'))" />
+<input type="button" value="getName" onclick="alert('现在的名称是 ' + user1.username)" />
+<br/>
+<input type="button" value="setAge"  onclick="user1.setAge(prompt('enter new Age'))"/>
+<input type="button" value="getAge"  onclick="alert('当前的年龄是' + user1.age)"/>
+<br/>
+<button type="button" onclick="alert('bookname is ' + bookList.booklist[prompt('enter array index')])">getarray</button>
+<input type="button" value="getObject" onclick="alert(booklistObject.booklist[prompt('enter array index')].author)"/>
+<input type="button" value="gettest" onclick="alert(prompt('enter a number') + prompt('enter 2 number'))"/>
 
 <script>
+    var user = {"Username":"songjh", "location": "Spain","Height":185};    //JSON对象
+    var user1 = {                                                           //JSON对象包含setName,setAge方法
+        "username":"fred",
+        "age":18,
+        "sex":"man",
+        "setName":function (newName) {                      //通过点方法访问JSON对象里的方法setAge
+            this.username = newName;
+        },
+        "setAge": function (newAge) {                       //通过点方法访问JSON对象里的方法setAge
+            if (newAge <= 0 || newAge >= 100 ) {
+                alert("out of range");
+            }else {
+             this.age = newAge;
+            }
+        }
+    };
+
+    var bookList = {"booklist": ["Foundation","Dune", "Eon", "2001 A Space Odysety", "Stranger In A Strange Land"]};
+    var booklistObject = {
+        "booklist": [
+            {"title": "Fondation","author":"Isaac Asimov"},
+            {"title": "Dune", "author":"Frank Herbert"},
+            {"title": "Eon", "author": "Greg Bear"},
+            {"title": "2001 A Space Odyssey","author": "Arthur C. Clarke"},
+            {"title": "Stranger In A Strange Land", "author": "Robert A. Heinlein"}]
+    };
+
     function jsonParse() {
         var inString = prompt("Enter JSON object:");
         var out = '';
