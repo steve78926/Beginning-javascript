@@ -9,13 +9,13 @@
         <title>Title</title>
     <script>
     var context;
-    var x=50;
-    var y=50;
+    var x=150;
+    var y=150;
     var counter = 0;
     function paint() {
         context.beginPath();
         context.fillStyle = "red";
-        context.arc(x,y,15,0,Math.PI*2,false);
+        context.arc(x,y,5,0,Math.PI*2,false);
         context.closePath();
         context.fill();
     }
