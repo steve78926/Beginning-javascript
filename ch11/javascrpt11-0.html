@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!--  第 11 章 HTML5 与 JavaScript
+
+    本文件练习以下内容：
+    <video>
+    <audio>
+    vidio and audio的方法： play(), pause()
+    vidio and audio的属性： currentTime, placebackRate, volume, muted
+
+    测试结果： 不能通过语句 var myAudio = document.getElementById("aud1").volume += 0.1 来增加音频的音量
+
+
+    -->
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <video id="vid1" width="1280" height="720" controls="controls" loop>
+        <source src="video/home_loop_720p.mp4" type="video/mp4"/>
+    </video>
+    <audio id="aud1" src="audio/home.ogg" autoplay loop controls></audio>
+</div>
+<div style="width:auto;height:auto;border:1px solid black;">
+    <input type="button" value="videoPause" onclick="videoPause()"/>
+    <input type="button" value="videoPlay" onclick="videoPlay()"/>
+    <input type="button" value="videoPlayRate" onclick="videoPlaybackRate()"/>
+    <input type="button" value="getCutime" onclick="videoCurrentTime()"/>
+    <input type="button" value="videoDuration" onclick="videoDuration()"/>
+</div>
+<br/>
+<div style="width:auto; height:auto; border:1px solid black;">
+    <input type="button" value="audioPause" onclick="audioPause()"/>
+    <input type="button" value="audioPlay" onclick="audioPlay()"/>
+    <input type="button" value="getCuTime" onclick="getAudioCuTime()"/>
+    <input type="button" value="PlaybackRate" onclick="audioPlayRate()"/>
+    <input type="button" value="getVolume" onclick="getVolume()"/>
+    <input type="button" value="VolumMute" onclick="audioMute()"/>
+    <input type="button" value="setMute"   onclick="setMute()"/>
+    <input type="button" value="addVolume" onclick="VolumeAdd()"/>
+</div>
+
+
+<script>
+    var myaud;
+    function videoPause() {
+        var myVideo = document.getElementById("vid1").pause();   /* 暂停视频播放 */
+}
+    function videoPlay() {
+        var myVidio = document.getElementById("vid1").play();    /* 视频播放 */
+    }
+
+    function videoPlaybackRate() {
+        var myVidio = document.getElementById("vid1").playbackRate;    /* 获得视频播放速率 */
+        alert(myVidio);
+    }
+
+    function videoCurrentTime() {
+        var myVideo = document.getElementById("vid1").currentTime;      /* 获得视频播放当前时间 */
+        alert(myVideo);
+    }
+
+    function videoDuration() {
+        var myvideo = mydocument.getElementById("vid1").duration;       /* 不清楚 */
+        alert(myvideo);
+}
+
+    /******************** Audio *****************************************/
+    function audioPause() {
+        var myaudio = document.getElementById("aud1").pause();       /* 暂停音频播放 */
+    }
+
+    function audioPlay() {
+        var myaudio = document.getElementById("aud1").play();       /* 音频播放 */
+    }
+
+    function audioPlayRate() {
+        var myaudio = document.getElementById("aud1").playbackRate;     /* 获得音频播放速率 */
+        alert(myaudio);
+    }
+
+    function getAudioCuTime() {
+        var myaudio = document.getElementById("aud1").currentTime;      /* 获得音频播放当前时间 */
+        alert(myaudio);
+    }
+
+
+    function getVolume()  {
+        var myAudio = document.getElementById("aud1").volume;           /* 获得音频播音量值 */
+        alert(myAudio);
+}
+    function audioMute() {
+        var myAudioMute = document.getElementById("aud1").muted;         /* 静音为true, 否则为false */
+        alert(myAudioMute);
+    }
+
+    function setMute() {
+        var myAudioMute = document.getElementById("aud1");              /* 不生效 */
+        myAudioMute.setAttribute("muted","true");
+    }
+
+    function VolumeAdd() {
+        var myAudioMute = document.getElementById("aud1");               /* 不生效 */
+        myAudioMute.setAttribute("volume",1);
+    }
+
+</script>
+</body>
+</html>
