@@ -2,6 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!--
+     第 12 章 JavaScript 和 CSS
+     根据title 选择样式表
+    -->
     <title>Title</title>
     <style title="sheet1">
         body {
@@ -30,19 +34,23 @@ Switch my stylesheet with the button below!<br/>
 
 <script>
     function ssEnable(mysheet) {
-        var change = false;
+        var change = false;  /* change值表示是否找到了指定名称的样式表，找到了为true  */
         var oldSheet = 0;
         for (var i=0; i< document.styleSheets.length; i++) {
-            if (document.styleSheets[i].disabled == false) {
-                oldSheet = 1;
+            if (document.styleSheets[i].disabled == false) { /* 如果判断是当前使用的样式表，就把它的索引值保存到变量oldSheet */
+                oldSheet = i;     /* 这里的i 不要打成数字1, oldSheet 表示当前正在使用的样式索引*/
             }
-            document.styleSheets[i].disabled = true;
-            if (document.styleSheets[i].title == mysheet) {
-                document.styleSheets[i].disabled = false;
+            document.styleSheets[i].disabled = true;   /* 在循环过程中，确保每个样式表都被禁用了*/
+            if (document.styleSheets[i].title == mysheet) { /* 如果当前样式表的标题符合要使用的标题，就把它的disabled值设置为false,*/
+                document.styleSheets[i].disabled = false;   /* 从而启用这个样式，并且立即把变量change 的值改为true */
+                alert("oldSheet on ssEnable if = " + oldSheet);
                 change = true;
             }
         }
-        if (!change) document.styleSheets[oldSheet].disabled = false;
+        if (!change) {  /* 在遍历全部样式表后，可以根据变量change和oldSheet的状态判断是否处于更换了样式表的状态，如果不是，就把以前使用的样式再次启用  */
+            document.styleSheets[oldSheet].disabled = false;
+            alert("oldSheet = " + oldSheet);
+        }
         return change;
     }
 
