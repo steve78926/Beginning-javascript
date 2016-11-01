@@ -56,7 +56,7 @@ Switch my stylesheet with the button below!<br/>
 
     function sheet() {
         var sheetName = prompt("Stylesheet Name:");
-        if (!ssEnable(sheetName)) alert("Not found - original stylesheet retained.");
+        if (!ssEnable(sheetName)) alert("Not found - original stylesheet retained.");  /* 如果函数ssEnable(sheetName) 返回false 表示样式表没有发生改变,用一条消息发出警告*/
     }
 
     window.onload = function () {
