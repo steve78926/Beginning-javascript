@@ -6,9 +6,9 @@
     <script src="../js/prototype-1.7.js"></script>
     <script>
         function showFormFields() {
-            var form = $('exampleForm');
+            var form = $('exampleForm');  /* $() 相当于getElementById() 的快捷方式*/
             var message = '';
-            var fields = form.getElements();
+            var fields = form.getElements();   /* getElements() 方法返回一个数组，此处返回表单输入的字段 */
             for (var x=0; x<fields.length; x++) {
                 message += "Field Name: " + fields[x].name + "value: " + fields[x].value + "\n";
             }
