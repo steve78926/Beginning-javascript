@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="link1" style="width:200px; height:200px; border:1px solid black;"></div>
+<input type="button" value="getproperty" onclick="setCss3();"/>
+<script>
+        /* var myTrans = getCss3Property(['msTransition','OTransition','MozTransition','WebkitTransition','transition']);
+        alert(myTrans);
+        document.getElementById("link1").style[myTrans] = "background 2s ease";
+        function getCss3Property(properties) {
+            for (var i=0; i< properties.length; i++) {
+                if (properties[i] in document.documentElement.style) {
+                    return properties[i];
+            }
+        }
+    } */
+       function setCss3() {
+            document.getElementById("link1").style[borderColor] = "red";
+        }
+</script>
+</body>
+</html>
