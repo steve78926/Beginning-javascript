@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--
+         第 15 章 jQuery 入门
+
+     $('#div01').html(): 获得html元素的内容
+     $('#div01').html("text .... text"): 设置html元素的内容
+     $('#div01').css({"background-color":"blue","font-size":"24px"}); 设置元素的样式
+     $('#div01').hide("slow");  隐藏元素
+     $('#div01').show("slow");  显示元素
+     $('#div01').toggle("slow");  改变元素显示状态
+     $('#div01').fadeOut(1600).fadeIn(1600);   淡入淡出元素
+     $('#div01').slideUp("slow");      向上滑动元素
+     $('#div01').slideDown(1000);      向下滑动元素
+     $('#div01').slideToggle(1000);     改变元素状态
+    -->
+    <style>
+        div {
+            width:500px;
+            height:100px;
+            border:2px solid green;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+<div id="div01">this is a div01 </div>
+<input type="button" value="set-html" onclick="sethtml()"/>
+<button type="button" onclick="gethtml()">get-html</button>
+<input type="button" value="setcss" onclick="setcss()"/>
+<input type="button" value="show" onclick="show()"/>
+<input type="button" value="hide" onclick="hide()"/>
+<input type="button" value="toggleE" onclick="toggle()"/>
+<input type="button" value="fadeIO" onclick="fadeIO()"/>
+<input type="button" value="slideUP" onclick="slideUP()"/>
+<input type="button" value="slideDOWN" onclick="slideDOWN()"/>
+<input type="button" value="slideDOWN" onclick="toggleSlide()"/>
+<script>
+    function gethtml() {
+        var htmlconent = $("#div01").html();
+        alert(htmlconent);
+    }
+    function sethtml() {
+        $('#div01').html("<h1>the text is setted by sethtml()</h1>")
+    }
+
+    function setcss(){
+        $("#div01").css({"background-color":"blue","font-size":"24px"});
+    }
+
+    function show() {
+        $('#div01').show("slow");
+    }
+
+    function hide() {
+        $('#div01').hide("slow");
+    }
+
+    function toggle() {
+        $('#div01').toggle(600);
+    }
+
+    function fadeIO(){
+        $('#div01').fadeOut(1600).fadeIn(1600);
+    }
+
+    function slideUP(){
+        $('#div01').slideUp("slow");
+    }
+
+    function slideDOWN() {
+        $('#div01').slideDown(1000);
+    }
+
+    function toggleSlide(){
+        $('#div01').slideToggle(1000);
+    }
+    $(document).ready(gethtml())
+</script>
+
+</body>
+</html>

@@ -22,9 +22,11 @@
         $("document").ready(function() {
             $("#animateMe").text("Changing shape...").animate(
                     {
-                        width: "400px",
-                        height: "200px"
+                        width: "200px",
+                        height: "200px",
+                        borderRadius:"50%"
                     },5000, function() {
+                        $(this).css({"font-size":"16px","background":"red"}).fadeIn(5000);
                         $(this).text("Fading away...").fadeOut(4000);
                     }
             );
