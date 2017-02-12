@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="../js/jquery-ui.min.css"/>
+    <meta charset="UTF-8">
+    <title>16-1</title>
+    <style>
+        #dragdiv {
+            width: 100px;
+            height: 100px;
+            background-color: #eeffee;
+            border: 1px solid black;
+            padding: 5px;
+        }
+    </style>
+    <script src="../js/jquery-latest.min.js"></script>
+    <script src="../js/jquery-ui.min.js"></script>
+    <script>
+        $(function () {
+            $("#dragdiv").draggable();
+        });
+    </script>
+</head>
+<body>
+<div id="dragdiv"> Drag this element around the page!</div>
+</body>
+</html>

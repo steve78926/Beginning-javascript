@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>15c-4</title>
+    <!--
+            第15章 jQuery 入门
+
+        date: 2017-02-11 23:39
+
+        $("#div01").html()   获得id为div01的元素html内容
+        $("#div01").html("update html content")   设置id为div01的元素html内容
+        $("#div01").text()  获得id为div01的元素文本内容
+        $("#div01").text("xxxxx")  设置id为div01的元素文本内容
+
+    -->
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <style>
+        div {width:500px; height: 100px;border: 3px solid green;}
+    </style>
+</head>
+<body>
+<div id="div01">this is a test div</div>
+<br/><br/>
+<div>
+    <button type="button" onclick="gethtml()" >gethtml</button>
+    <button type="button" onclick="sethtml()">sethtml</button>
+    <button type="button" onclick="get_text()">getText</button>
+    <button type="button" onclick="set_text()">setText</button>
+    <button type="button" onclick="append_text()">appendText</button>
+    <input type="button" onclick="setattr()" value="setattr"/>
+    <input type="button" onclick="getattr()" value="getattr"/>
+    <input type="button" onclick="setcss()" value="setcss"/>
+    <input type="button" onclick="showdiv()" value="showdiv"/>
+    <input type="button" onclick="hidediv()" value="hidediv"/>
+    <input type="button" onclick="togglediv()" value="toggle"/>
+    <input type="button" onclick="fadeIN()" value="fadein"/>
+    <input type="button" onclick="slide_up()" value="slideup"/>
+    <input type="button" onclick="slide_down()" value="slidedown"/>
+    <input type="button" onclick="animate1()" value="animate"/>
+</div>
+<script>
+    function gethtml() {
+        var htmlcontent = $("#div01").html();
+        alert(htmlcontent);
+    }
+
+    function sethtml() {
+        $("#div01").html("<h3>update html content by html()</h3>");
+    }
+
+    function get_text() {
+        var textcontent = $("#div01").text();
+        alert(textcontent);
+    }
+
+    function set_text() {
+        $('#div01').text("update html content by text()");
+    }
+
+    function append_text() {
+        $('#div01').append(" ### add new text at end of line ");
+    }
+
+    function setattr() {
+     $("#div01").attr("border","3px solid green");
+    }
+
+    function getattr() {
+        var div_attr = $('#div01').attr('border');
+        alert(div_attr);
+    }
+
+    function setcss() {
+        $('#div01').css({"border": "5px solid red"});
+    }
+
+    function showdiv() {
+        $('#div01').show(2000, function () {
+            alert("show div 01")
+        });
+    }
+
+    function hidediv() {
+        $('#div01').hide("slow", function () {
+            alert("To hide div 01");
+        });
+    }
+
+    function togglediv () {
+        $('#div01').toggle(3000, function () {
+           alert("change div state");
+        });
+    }
+
+    function fadeIN() {
+        $('#div01').fadeIn("slow").fadeOut("fast");
+    }
+
+    function slide_up() {
+        $('#div01').slideUp("slow", function () {
+            alert("to slide up");
+        });
+    }
+
+    function slide_down() {
+        $('#div01').slideDown(1000,function () {
+            alert("to slide down 1000");
+        })
+    }
+
+    function animate1() {
+        $('#div01').animate(
+                {
+                width: "400px",
+                height: "200px"
+                }, 1500, function() {
+            $(this).fadeOut("slow").fadeIn(1000);
+            }
+        )
+    }
+</script>
+</body>
+</html>
