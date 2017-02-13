@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>16-4-3</title>
+    <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/smoothness/jquery-ui.min.css"/>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+</head>
+<body>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Home</a></li>
+        <li><a href="#tabs-2">About us</a></li>
+        <li><a href="#tabs-3">Products</a></li>
+        <li><a href="#tabs-4">Home</a></li>
+        <li><a href="#tabs-5">About us</a></li>
+        <li><a href="#tabs-6">Products</a></li>
+    </ul>
+    <div id="tabs-1">
+        <p>Welcome to our online store...</p>
+    </div>
+    <div id="tabs-2">
+        <p>We've been selling widgets for 5 years...</p>
+    </div>
+    <div id="tabs-3">
+        <p>We sell all kinds of widgets....</p>
+    </div>
+    <div id="tabs-4">
+        <p>Welcome to our online store...</p>
+    </div>
+    <div id="tabs-5">
+        <p>We've been selling widgets for 5 years...</p>
+    </div>
+    <div id="tabs-6">
+        <p>We sell all kinds of widgets....</p>
+    </div>
+</div>
+<script>
+    $(function () {
+       $('#tabs').tabs();
+    });
+</script>
+</body>
+</html>
