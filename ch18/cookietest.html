@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cookie Testing</title>
+    <script src="cookies.js"></script>
+    <script>
+        window.onload = function () {
+            var value1 = prompt("input value1:")
+            var value2 = prompt("input value2:")
+            var cookievalue = value1 + "|" + value2
+            createCookie("myCookieData", cookievalue);
+        }
+    </script>
+</head>
+<body>
+<a href="cookietest2.html"> Go to Cookie Test Page 2</a>
+</body>
+</html>
