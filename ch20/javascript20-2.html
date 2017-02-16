@@ -23,12 +23,17 @@
 </head>
 <body ng-app ng-init = "departments= [
     { name: 'Sales', contact: 'Marsha Brown'},
-    {
-">
-<p>Search Departments: <input type="text"></p>
+    { name: 'Support', contact: 'Dave Price' },
+    { name: 'Production', contact: 'Grant Wales'},
+    { name: 'Service', contact: 'Sherry Dell'},
+    { name: 'Administration', contact: 'Sally Bennett'},
+    { name: 'Accounting', contact: 'Kim Sutherland'},
+    { name: 'Shipping', contact: 'Sandy Connell'} ]">
+
+<p>Search Departments: <input type="text" placeholder="Enter search String" ng-model="searchString"></p>
 <div id="list-container">
     <ul>
-        <li></li>
+        <li ng-repeat="dept in departments | filter: searchString">{{ dept.name + " (" + dept.contact + ")" }}</li>
     </ul>
 </div>
 </body>
